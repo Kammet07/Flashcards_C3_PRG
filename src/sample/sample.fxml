@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <AnchorPane fx:id="anchorFlashcard" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;">
+      <children>
+         <AnchorPane fx:id="anchorBack" layoutX="143.0" layoutY="30.0" prefHeight="196.0" prefWidth="218.0">
+            <children>
+               <Rectangle fx:id="rectangleTwo" arcHeight="5.0" arcWidth="5.0" fill="#03294a" height="282.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+               <Label fx:id="backSideLabel" layoutX="14.0" layoutY="120.0" text="BackSide" textFill="WHITE">
+                  <font>
+                     <Font size="35.0" />
+                  </font>
+               </Label>
+               <Label fx:id="backSideLangLabel" layoutX="14.0" layoutY="14.0" text="backlangName" textFill="WHITE" />
+            </children>
+         </AnchorPane>
+         <AnchorPane fx:id="anchorFront" layoutX="143.0" layoutY="31.0" prefHeight="196.0" prefWidth="218.0">
+            <children>
+               <Rectangle fx:id="rectangleOne" arcHeight="5.0" arcWidth="5.0" fill="#0084ff" height="282.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="314.0" />
+               <Label fx:id="frontSideLabel" layoutX="14.0" layoutY="119.0" text="FrontSide">
+                  <font>
+                     <Font size="35.0" />
+                  </font>
+               </Label>
+               <Label fx:id="frontSideLangLabel" layoutX="14.0" layoutY="14.0" text="frontlangName" />
+            </children>
+         </AnchorPane>
+         <JFXCheckBox fx:id="showHideCheckBox" layoutX="248.0" layoutY="337.0" onAction="#changeRectangles" prefHeight="30.0" prefWidth="105.0" text="Show back" />
+         <JFXButton fx:id="nextButton" layoutX="496.0" layoutY="159.0" onAction="#nextCard" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #03294a;" text="Next" textFill="WHITE" />
+         <JFXButton fx:id="prevButton" layoutX="38.0" layoutY="159.0" onAction="#prevCard" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #03294a;" text="Prev" textFill="WHITE" />
+         <JFXButton fx:id="openAddFlashcardButton" layoutX="500.0" layoutY="339.0" onAction="#openAddFlashcard" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #03294a;" text="Add" textFill="WHITE" />
+         <JFXButton fx:id="openEditFlashcardButton" layoutX="408.0" layoutY="339.0" onAction="#openEditFlashcard" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #03294a;" text="Edit" textFill="WHITE" />
+         <JFXButton fx:id="deleteFlashcardButton" layoutX="500.0" layoutY="300.0" onAction="#deleteFlashcard" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #03294a;" text="Delete" textFill="WHITE" />
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="addFlashcardAnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff; visibility: false;">
+      <children>
+         <JFXTextField fx:id="frontSideTextField" layoutX="68.0" layoutY="48.0" prefHeight="36.0" prefWidth="215.0" promptText="Front side" />
+         <JFXTextField fx:id="backSideTextField" layoutX="318.0" layoutY="48.0" prefHeight="36.0" prefWidth="215.0" promptText="Back side" />
+         <JFXTextField fx:id="frontSideLanguageTextField" layoutX="68.0" layoutY="164.0" prefHeight="36.0" prefWidth="215.0" promptText="Front side landuage" />
+         <JFXTextField fx:id="backSideLanguageTextField" layoutX="318.0" layoutY="164.0" prefHeight="36.0" prefWidth="215.0" promptText="Back side language" />
+         <JFXButton fx:id="addFlashcardButton" layoutX="444.0" layoutY="253.0" onAction="#addFlashcard" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: #03294a;" text="Add" textFill="WHITE" />
+         <JFXButton fx:id="addFlashcardCancelButton" layoutX="337.0" layoutY="253.0" onAction="#addFlashcardCancel" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: #03294a;" text="Cancel" textFill="WHITE" />
+      </children>
+   </AnchorPane>
+   <AnchorPane fx:id="editFlashcardAnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff; visibility: false;">
+      <children>
+         <JFXTextField fx:id="frontSideEditTextField" layoutX="68.0" layoutY="48.0" prefHeight="36.0" prefWidth="215.0" promptText="Front side" />
+         <JFXTextField fx:id="backSideEditTextField" layoutX="318.0" layoutY="48.0" prefHeight="36.0" prefWidth="215.0" promptText="Back side" />
+         <JFXTextField fx:id="frontSideLanguageEditTextField" layoutX="68.0" layoutY="164.0" prefHeight="36.0" prefWidth="215.0" promptText="Front side landuage" />
+         <JFXTextField fx:id="backSideLanguageEditTextField" layoutX="318.0" layoutY="164.0" prefHeight="36.0" prefWidth="215.0" promptText="Back side language" />
+         <JFXButton fx:id="editFlashcardButton" layoutX="444.0" layoutY="253.0" onAction="#editFlashcard" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: #03294a;" text="Edit" textFill="WHITE" />
+         <JFXButton fx:id="editFlashcardCancelButton" layoutX="337.0" layoutY="253.0" onAction="#editFlashcardCancel" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: #03294a;" text="Cancel" textFill="WHITE" />
+      </children>
+   </AnchorPane>
+</AnchorPane>
