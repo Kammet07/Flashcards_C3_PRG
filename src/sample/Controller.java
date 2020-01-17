@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 import sample.data.Flashcard;
 import sample.data.FlashcardsManager;
 
-public class Controller extends FlashcardsManager{
+public class Controller {
     public JFXTextField frontSideTextField;
     public JFXTextField backSideTextField;
     public JFXTextField frontSideLanguageTextField;
@@ -34,6 +34,8 @@ public class Controller extends FlashcardsManager{
     public Label backSideLangLabel;
     public Label backSideLabel;
 
+    public FlashcardsManager manager = new FlashcardsManager();
+
     public void changeRectangles(ActionEvent actionEvent) {
         boolean isSelected = showHideCheckBox.isSelected();
 
@@ -45,12 +47,12 @@ public class Controller extends FlashcardsManager{
     }
 
     public void initialize() {
-        if (getFlashcards().size()>1)
+        if (manager.getFlashcards().size()>1)
             changeFC();
     }
 
     public void nextCard(ActionEvent actionEvent) {
-        int sizeFC = getFlashcards().size();
+        int sizeFC = manager.getFlashcards().size();
         sizeFC--;
 
         if (flashcardNumb < sizeFC) {
@@ -69,7 +71,7 @@ public class Controller extends FlashcardsManager{
     }
 
     public void changeFC() {
-        Flashcard fc = getFlashcards().get(flashcardNumb);
+        Flashcard fc = manager.getFlashcards().get(flashcardNumb);
         frontSideLabel.setText(fc.getFrontSide());
         frontSideLangLabel.setText(fc.getFrontSideLang());
         backSideLabel.setText(fc.getBackSide());
@@ -85,7 +87,7 @@ public class Controller extends FlashcardsManager{
     }
 
     public void addFlashcard(ActionEvent actionEvent) {
-        addFlashcard(frontSideTextField.getText(), backSideTextField.getText(), frontSideLanguageTextField.getText(), backSideLanguageTextField.getText());
+        manager.addFlashcard(frontSideTextField.getText(), backSideTextField.getText(), frontSideLanguageTextField.getText(), backSideLanguageTextField.getText());
         closeAddFlashCardAnchorPane();
     }
 
@@ -99,7 +101,7 @@ public class Controller extends FlashcardsManager{
 
 
     public void openEditFlashcard(ActionEvent actionEvent) {
-        Flashcard fc = getFlashcards().get(flashcardNumb);
+        Flashcard fc = manager.getFlashcards().get(flashcardNumb);
         frontSideEditTextField.setText(fc.getFrontSide());
         backSideEditTextField.setText(fc.getBackSide());
         frontSideLanguageEditTextField.setText(fc.getFrontSideLang());
@@ -113,15 +115,15 @@ public class Controller extends FlashcardsManager{
     }
 
     public void editFlashcard(ActionEvent actionEvent) {
-        Flashcard fc = getFlashcards().get(flashcardNumb);
-        editFlashcard(fc.getId(), frontSideEditTextField.getText(), backSideEditTextField.getText(), frontSideLanguageEditTextField.getText(), backSideLanguageEditTextField.getText());
+        Flashcard fc = manager.getFlashcards().get(flashcardNumb);
+        manager.editFlashcard(fc.getId(), frontSideEditTextField.getText(), backSideEditTextField.getText(), frontSideLanguageEditTextField.getText(), backSideLanguageEditTextField.getText());
 
         editFlashcardAnchorPane.setVisible(false);
     }
 
 
     public void deleteFlashcard(ActionEvent actionEvent) {
-        Flashcard fc = getFlashcards().get(flashcardNumb);
-        deleteFlashcard(fc.getId());
+        Flashcard fc = manager.getFlashcards().get(flashcardNumb);
+        manager.deleteFlashcard(fc.getId());
     }
 }
