@@ -1,0 +1,5 @@
+# Project exclude paths
+/out/
+
+# Credentials from MySQL
+/src/sample/data/Credentials.java

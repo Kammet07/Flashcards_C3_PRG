@@ -3,11 +3,7 @@ package sample.data;
 import java.sql.*;
 import java.util.LinkedList;
 
-public class FlashcardsManager {
-    private final String url = "jdbc:mysql://localhost:3306/flashcards?useUnicode=true&characterEncoding=utf8&noAccessToProcedureBodies=true";
-    private final String credentialsUser = "*****";
-    private final String credentialsPassword = "*****";
-
+public class FlashcardsManager extends Credentials{
     public LinkedList<Flashcard> getFlashcards() {
         Connection conn = null;
         LinkedList<Flashcard> data = new LinkedList<>();

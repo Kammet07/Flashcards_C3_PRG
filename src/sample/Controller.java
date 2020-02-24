@@ -39,11 +39,7 @@ public class Controller {
     public void changeRectangles(ActionEvent actionEvent) {
         boolean isSelected = showHideCheckBox.isSelected();
 
-        if (isSelected) {
-            anchorFront.setVisible(false);
-        } else {
-            anchorFront.setVisible(true);
-        }
+        anchorFront.setVisible(!isSelected);
     }
 
     public void initialize() {
